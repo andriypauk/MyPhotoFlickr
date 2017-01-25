@@ -2,6 +2,7 @@ package ua.andriypauk.myphotoflickr.view.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -19,7 +20,8 @@ public class PhotoFlickrAdapter extends RecyclerView.Adapter<PhotoFlickrAdapter.
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return null;
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.album_card, parent, false);
+        return new MyViewHolder(view);
     }
 
     @Override
