@@ -7,7 +7,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import ua.andriypauk.myphotoflickr.R;
+import ua.andriypauk.myphotoflickr.model.data.Photos;
 
 /**
  * Created by Andriy on 25.01.2017.
@@ -16,6 +22,13 @@ import ua.andriypauk.myphotoflickr.R;
 public class PhotoFlickrAdapter extends RecyclerView.Adapter<PhotoFlickrAdapter.MyViewHolder> {
 
     private Context mContext;
+
+    private List<Photos> photoList ;
+
+    public PhotoFlickrAdapter(ArrayList<Photos> photos){
+        photoList = photos;
+    }
+
 
 
     @Override
@@ -26,6 +39,10 @@ public class PhotoFlickrAdapter extends RecyclerView.Adapter<PhotoFlickrAdapter.
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
+
+        Photos photo = photoList.get(position);
+
+        Glide.with(mContext).load(photo.getPhoto()).into(holder.imageFlickr);
 
     }
 
